@@ -22,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const Todo = (props) => {
+const Todo3 = (props) => {
     const classes = useStyles()
     const [open, setOpen] = useState(false)
     const [input, setInput] = useState("")
 
     const updateTodos = () => {
-        db.collection('todos2').doc(props.todo3.id).set({
+        db.collection('todos3').doc(props.todo3.id).set({
             todo3: input
         }, { merge: true })
         setOpen(false)
@@ -54,7 +54,7 @@ const Todo = (props) => {
                     <Button color='secondary' variant="contained" onClick={e => setOpen(true)}>Edit</Button>
                     <DeleteOutlinedIcon
                         onClick={event => {
-                            db.collection("todos3").doc(props.todo3.id).delete()
+                            db.collection("todos").doc(props.todo3.id).delete()
                         }} variant="contained" color="secondary" />
 
                 </ListItem>
@@ -65,4 +65,4 @@ const Todo = (props) => {
     );
 };
 
-export default Todo;
+export default Todo3;
